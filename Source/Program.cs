@@ -5,10 +5,10 @@ using UserManagementAPI.Services;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<IUserService, UserService>();
 builder.Services.AddSwaggerDocumentation();
-
+builder.Services.AddJwtAuthentication(builder.Configuration);
 var app = builder.Build();
 
-if(app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI(c =>
@@ -17,6 +17,8 @@ if(app.Environment.IsDevelopment())
         c.RoutePrefix = string.Empty; // Set Swagger UI at the app's root
     });
 }
+app.UseAuthentication();
+app.UseAuthorization();
 app.MapUserEndpoints();
 
 app.Run();

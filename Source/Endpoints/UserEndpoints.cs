@@ -1,8 +1,10 @@
 
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Authorization;
 using UserManagementAPI.Dtos;
 using UserManagementAPI.Models;
 using UserManagementAPI.Services;
+using UserManagementAPI.Utils;
 
 namespace UserManagementAPI.Endpoints;
 
@@ -10,7 +12,8 @@ public static class UserEndpoints
 {
     public static void MapUserEndpoints(this WebApplication app)
     {
-        app.MapGet("/users", (IUserService service) => {
+        app.MapGet("/users", [Authorize] (IUserService service) =>
+        {
             var user = service.GetAll().Select(u => new UserDto
             {
                 Id = u.Id,
@@ -75,6 +78,18 @@ public static class UserEndpoints
         app.MapDelete("/users/{id}", (int id, IUserService service) =>
         {
             return service.Delete(id) ? Results.NoContent() : Results.NotFound();
+        });
+
+        app.MapGet("/auth/token", (IConfiguration config) =>
+        {
+            var secretKey = config["Jwt:Key"];
+            if (string.IsNullOrEmpty(secretKey))
+            {
+                return Results.Problem("JWT secret key is missing.");
+            }
+
+            var token = JwtHelper.GenerateJwtToken(secretKey);
+            return Results.Ok(new { token });
         });
     }
 }
