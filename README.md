@@ -13,4 +13,4 @@
 - ASP.NET Core 8
 - Swagger / OpenAPI
 - xUnit (for testing)
-- Line from main v6 branch
+- Line from feature v3 branch
