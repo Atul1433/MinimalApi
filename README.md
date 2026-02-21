@@ -6,8 +6,9 @@
 - DTOs with validation
 - Swagger (OpenAPI) UI
 - Modular extensions
-- JWT Authentication (Coming Soon)
-- Database integration (Coming Soon)
+- JWT Authentication (Com Soon few days)
+- Database integration (Coming Son 98)
+- new feature test
 
 ## 🚀 Tech Stack
 - ASP.NET Core 8
