@@ -3,8 +3,8 @@
 
 ## ✅ Features
 - Minimal API architecture
-- DTOs with validation
-- Swagger (OpenAPI) UI
+- DTs with validation
+- Swagger (OpenAPI..) UI
 - Modular extensions
 - JWT Authentication (Coming Soon after some time)
 - Database integration (Coming Soon...)
