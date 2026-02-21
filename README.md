@@ -7,10 +7,10 @@
 - Swagger (OpenAPI..) UI
 - Modular extensions
 - JWT Authentication (Coming Soon after some time)
-- Database integration (Coming Soon...)
+- Database integration (Coming Soon.. after some time)
 
 ## 🚀 Tech Stack
 - ASP.NET Core 8
 - Swagger / OpenAPI
 - xUnit (for testing)
-- Line from feature branch
+- Line from main v6 branch
